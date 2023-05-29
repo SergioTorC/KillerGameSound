@@ -12,7 +12,7 @@ public class BackgroundSound {
     public void reproduceMusic(Media media){
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         setMediaPlayer(mediaPlayer);
-        mediaPlayer.setVolume(0.1); // Ajusta el volumen según sea necesario
+        mediaPlayer.setVolume(0.2); // Ajusta el volumen según sea necesario
         new Thread(()->{
                 mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
                 mediaPlayer.setOnReady(mediaPlayer::play);

@@ -4,6 +4,7 @@ package sound.killergamesound.SoundController;
 import communications.P2PCommListener;
 import sound.killergamesound.SoundModel.BackgroundSound;
 import sound.killergamesound.SoundModel.EventSound;
+import sound.killergamesound.SoundModel.MusicType;
 import sound.killergamesound.SoundModel.SoundType;
 
 public class SoundHandler implements P2PCommListener {
@@ -20,10 +21,12 @@ public class SoundHandler implements P2PCommListener {
         System.out.println(message);
         if (message.equals("UP")) {
             eventSound.playSound(SoundType.LASER);
-        } else if (message.equals("RIGHT")) {
-            backgroundSound.reproduceCalm();
         } else if (message.equals("LEFT")) {
+            backgroundSound.reproduceCalm();
+        } else if (message.equals("RIGHT")) {
             backgroundSound.reproduceCombat();
+        } else if (message.equals("DOWN")){
+            eventSound.playSound(SoundType.EXPLOSION);
         }
     }
 

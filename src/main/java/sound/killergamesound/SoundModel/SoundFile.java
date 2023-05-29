@@ -22,7 +22,10 @@ public class SoundFile {
             if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
                 mediaPlayer.stop(); // Detener la reproducción si está en ejecución
             }
-            mediaPlayer.seek(mediaPlayer.getStartTime()); // Reiniciar la posición al inicio
+            mediaPlayer.seek(mediaPlayer.getStartTime());
+            System.out.println(mediaPlayer.getCurrentTime());
+            System.out.println(mediaPlayer.getBufferProgressTime());
+            System.out.println(mediaPlayer.getAudioSpectrumInterval());// Reiniciar la posición al inicio
             mediaPlayer.play();
         } catch (Exception ex) {
             ex.printStackTrace();

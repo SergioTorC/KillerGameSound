@@ -1,15 +1,17 @@
 package sound.killergamesound.SoundModel;
 
-public class EventSound {
-    private static final String SOUNDS_DIR = "src/Sounds/";
+import java.io.Serializable;
+
+public class EventSound implements Serializable {
     private final SoundFile laser;
-    //private final SoundFile explosion;
+    private final SoundFile explosion;
     //private final SoundFile laser;
     //private final SoundFile laser;
 
 
     // Constructor que carga los sonidos normales
     public EventSound() {
+        this.explosion = new SoundFile(SoundType.EXPLOSION);
         this.laser = new SoundFile(SoundType.LASER);
     }
 
@@ -18,6 +20,7 @@ public class EventSound {
         try {
             switch (soundType) {
                 case LASER -> laser.startAudio();
+                case EXPLOSION -> explosion.startAudio();
                 //case EXPLOSION -> explosion.startAudio();
             }
         } catch (Exception ex) {

@@ -1,8 +1,10 @@
 package sound.killergamesound.SoundModel;
 
-public enum SoundType {
-    //EXPLOSION("explosion.wav"),
-    LASER("laser.wav");
+import java.io.Serializable;
+
+public enum SoundType implements Serializable {
+    EXPLOSION("explosion.mp3"),
+    LASER("laser.mp3");
 
     private final String fileName;
 
