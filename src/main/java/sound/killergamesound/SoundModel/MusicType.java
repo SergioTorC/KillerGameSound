@@ -6,7 +6,7 @@ package sound.killergamesound.SoundModel;
 
 public enum MusicType {
     COMBAT("combat.mp3"),
-    CALM("calma.wav");
+    CALM("calma.mp3");
 
     private final String fileName;
 

@@ -7,6 +7,7 @@ package sound.killergamesound.SoundController;
 import communications.P2PCommListener;
 import sound.killergamesound.SoundModel.BackgroundSound;
 import sound.killergamesound.SoundModel.EventSound;
+import sound.killergamesound.SoundModel.MusicType;
 import sound.killergamesound.SoundModel.SoundType;
 
 public class SoundHandler implements P2PCommListener {
@@ -15,7 +16,7 @@ public class SoundHandler implements P2PCommListener {
 
     /**
      * Constructor for the SoundHandler class.
-     * Creates instances of BackgroundSound and EventSound.
+     * Create instances of BackgroundSound and EventSound.
      */
     public SoundHandler() {
         backgroundSound = new BackgroundSound();
@@ -27,14 +28,14 @@ public class SoundHandler implements P2PCommListener {
      * @param message Received object.
      */
     public void receiveObject(Object message) {
-        System.out.println(message);
-        if (message.equals("LASER")) {
+        //System.out.println(message);
+        if (message.equals(SoundType.LASER.getFileName())) {
             eventSound.playSound(SoundType.LASER);
-        } else if (message.equals("CALM")) {
+        } else if (message.equals(MusicType.CALM.getFileName())) {
             backgroundSound.reproduceCalm();
-        } else if (message.equals("COMBAT")) {
+        } else if (message.equals(MusicType.COMBAT.getFileName())) {
             backgroundSound.reproduceCombat();
-        } else if (message.equals("EXPLOSION")){
+        } else if (message.equals(SoundType.EXPLOSION.getFileName())){
             eventSound.playSound(SoundType.EXPLOSION);
         }
     }

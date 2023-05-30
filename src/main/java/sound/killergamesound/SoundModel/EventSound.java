@@ -6,7 +6,7 @@ package sound.killergamesound.SoundModel;
 
 import java.io.Serializable;
 
-public class EventSound implements Serializable {
+public class EventSound {
     private final SoundFile laser;
     private final SoundFile explosion;
 
