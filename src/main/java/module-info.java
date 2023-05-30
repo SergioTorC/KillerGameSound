@@ -7,4 +7,6 @@ module sound.killergamesound {
 
     opens sound.killergamesound to javafx.fxml;
     exports sound.killergamesound;
+    exports sound.killergamesound.Main;
+    opens sound.killergamesound.Main to javafx.fxml;
 }
