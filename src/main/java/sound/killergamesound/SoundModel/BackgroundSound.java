@@ -6,8 +6,12 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
 public class BackgroundSound {
+    private Boolean inCombat;
     private MediaPlayer mediaPlayer;
     private static final String SOUNDS_DIR = "Sounds/";
+    public BackgroundSound(){
+        this.inCombat = false;
+    }
 
     public void reproduceMusic(Media media){
         MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -21,25 +25,31 @@ public class BackgroundSound {
     }
 
     public void reproduceCombat() {
-        stopMusic(getMediaPlayer());
-        try {
-            String combatMusicFile = SOUNDS_DIR + MusicType.COMBAT.getFileName();
-            Media media = new Media(new File(combatMusicFile).toURI().toString());
-            reproduceMusic(media);
+        if (!inCombat) {
+            stopMusic(getMediaPlayer());
+            try {
+                String combatMusicFile = SOUNDS_DIR + MusicType.COMBAT.getFileName();
+                Media media = new Media(new File(combatMusicFile).toURI().toString());
+                inCombat = true;
+                reproduceMusic(media);
 
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
     public void reproduceCalm() {
-        stopMusic(getMediaPlayer());
-        try {
-            String calmMusicFile = SOUNDS_DIR + MusicType.CALMA.getFileName();
-            Media media = new Media(new File(calmMusicFile).toURI().toString());
-            reproduceMusic(media);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (inCombat) {
+            stopMusic(getMediaPlayer());
+            try {
+                String calmMusicFile = SOUNDS_DIR + MusicType.CALMA.getFileName();
+                Media media = new Media(new File(calmMusicFile).toURI().toString());
+                inCombat = false;
+                reproduceMusic(media);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
