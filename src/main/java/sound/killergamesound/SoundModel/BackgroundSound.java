@@ -29,7 +29,7 @@ public class BackgroundSound {
      *
      * @param media The media object representing the music to play.
      */
-    public void reproduceMusic(Media media) {
+    private void reproduceMusic(Media media) {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         setMediaPlayer(mediaPlayer);
         mediaPlayer.setVolume(0.2); // Adjust the volume as needed
