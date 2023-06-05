@@ -28,7 +28,6 @@ public class SoundHandler implements P2PCommListener {
      * @param message Received object.
      */
     public void receiveObject(Object message) {
-        //System.out.println(message);
         if (message.equals(SoundType.LASER.getFileName())) {
             eventSound.playSound(SoundType.LASER);
         } else if (message.equals(MusicType.CALM.getFileName())) {
@@ -37,6 +36,10 @@ public class SoundHandler implements P2PCommListener {
             backgroundSound.reproduceCombat();
         } else if (message.equals(SoundType.EXPLOSION.getFileName())){
             eventSound.playSound(SoundType.EXPLOSION);
+        } else if (message.equals(MusicType.MENU.getFileName())){
+            backgroundSound.reproduceMenu();
+        } else if (message.equals(SoundType.HIT.getFileName())){
+            eventSound.playSound(SoundType.HIT);
         }
     }
 

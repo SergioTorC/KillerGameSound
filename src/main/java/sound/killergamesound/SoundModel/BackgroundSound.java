@@ -18,20 +18,22 @@ public class BackgroundSound {
      * Constructor for the BackgroundSound class.
      * Initializes the inCombat flag as false.
      */
-    public BackgroundSound(){
+    public BackgroundSound() {
         this.inCombat = false;
+        reproduceMenu();
     }
 
     /**
      * Plays the specified music.
      * Creates a new MediaPlayer with the given media and starts playing it.
+     *
      * @param media The media object representing the music to play.
      */
-    public void reproduceMusic(Media media){
+    public void reproduceMusic(Media media) {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         setMediaPlayer(mediaPlayer);
         mediaPlayer.setVolume(0.2); // Adjust the volume as needed
-        new Thread(()->{
+        new Thread(() -> {
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaPlayer.setOnReady(mediaPlayer::play);
         }).start();
@@ -74,8 +76,25 @@ public class BackgroundSound {
     }
 
     /**
+     * Plays the menu music.
+     * Stops the current music, loads the menu music file, and starts playing it.
+     */
+    public void reproduceMenu() {
+        stopMusic(getMediaPlayer());
+        try {
+            String menuMusicFile = SOUNDS_DIR + MusicType.MENU.getFileName();
+            Media media = new Media(new File(menuMusicFile).toURI().toString());
+            inCombat = false;
+            reproduceMusic(media);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
      * Stops the specified MediaPlayer.
      * Stops and disposes the MediaPlayer to release resources.
+     *
      * @param mediaPlayer The MediaPlayer to stop.
      */
     public void stopMusic(MediaPlayer mediaPlayer) {
@@ -87,6 +106,7 @@ public class BackgroundSound {
 
     /**
      * Sets the MediaPlayer for the background music.
+     *
      * @param mediaPlayer The MediaPlayer to set.
      */
     public void setMediaPlayer(MediaPlayer mediaPlayer) {
@@ -95,9 +115,10 @@ public class BackgroundSound {
 
     /**
      * Returns the current MediaPlayer for the background music.
+     *
      * @return The current MediaPlayer.
      */
-    public MediaPlayer getMediaPlayer(){
+    public MediaPlayer getMediaPlayer() {
         return mediaPlayer;
     }
 }

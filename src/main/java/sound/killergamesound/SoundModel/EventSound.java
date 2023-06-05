@@ -4,11 +4,10 @@
  */
 package sound.killergamesound.SoundModel;
 
-import java.io.Serializable;
-
 public class EventSound {
     private final SoundFile laser;
     private final SoundFile explosion;
+    private final SoundFile hit;
 
     /**
      * Constructor for the EventSound class.
@@ -17,6 +16,7 @@ public class EventSound {
     public EventSound() {
         this.explosion = new SoundFile(SoundType.EXPLOSION);
         this.laser = new SoundFile(SoundType.LASER);
+        this.hit = new SoundFile(SoundType.HIT);
     }
 
     /**
@@ -28,6 +28,7 @@ public class EventSound {
             switch (soundType) {
                 case LASER -> laser.startAudio();
                 case EXPLOSION -> explosion.startAudio();
+                case HIT -> hit.startAudio();
             }
         } catch (Exception ex) {
             ex.printStackTrace();
