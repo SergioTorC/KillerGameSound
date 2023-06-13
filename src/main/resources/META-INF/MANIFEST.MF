@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: sound.killergamesound.Launcher
-Class-Path: javafx-controls-17.0.2-linux.jar connections.jar javafx-cont
- rols-17.0.2.jar javafx-base-17.0.2.jar javafx-fxml-17.0.2-linux.jar jav
- afx-graphics-17.0.2.jar javafx-fxml-17.0.2.jar javafx-base-17.0.2-linux
- .jar javafx-media-17.0.2.jar javafx-media-17.0.2-linux.jar javafx-graph
- ics-17.0.2-linux.jar
-
