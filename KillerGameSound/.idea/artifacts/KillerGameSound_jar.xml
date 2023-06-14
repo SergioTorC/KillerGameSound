@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact name="KillerGameSound:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/KillerGameSound_jar</output-path>
+    <root id="root">
+      <element id="archive" name="KillerGameSound.jar">
+        <element id="module-output" name="KillerGameSound" />
+      </element>
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:linux:17.0.2" />
+      <element id="library" level="module" name="Maven: lib:connections:1.0.0" module-name="KillerGameSound" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:linux:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:linux:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:linux:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:linux:17.0.2" />
+    </root>
+  </artifact>
+</component>
